@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Configurações – CRM Revisional</title>
+  <!-- Fontes Jura (títulos) e Inter (textos) -->
+  <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Visual compartilhado -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<!-- data-k diz ao app.js qual tela é esta (controle de acesso e item ativo do menu) -->
+<body data-k="configuracoes">
+  <div id="app">
+    <!-- Menu lateral: o app.js preenche o nome do usuário e os links conforme o perfil -->
+    <aside class="side">
+      <button class="hb" id="hb" aria-label="Recolher menu"><span></span><span></span><span></span></button>
+      <b>“<span class="un">Usuário</span>”</b>
+      <nav class="nav" id="nav"></nav>
+      <button class="lo">Logout</button>
+    </aside>
+    <main>
+      <!-- Configurações do financeiro: fornecedores, chargebacks e taxas das bandeiras -->
+      <section data-v="configuracoes">
+        <div class="cfg-t">
+          <h1>Configurações</h1>
+          <button class="btn lo">Logout</button>
+        </div>
+        <div class="cfg">
+          <div class="card">
+            <h2>Fornecedores</h2>
+            <div id="fns"></div>
+            <div class="bts">
+              <button class="btn" id="fAdd">Adicionar</button>
+              <button class="btn red" id="fRem">Remover</button>
+            </div>
+          </div>
+          <div class="card">
+            <h2>Registros de chargeback</h2>
+            <div id="cbs" style="max-height:260px;overflow:auto"></div>
+            <div class="bts">
+              <button class="btn" id="cAdd">Adicionar</button>
+            </div>
+          </div>
+        </div>
+        <div class="cfg2">
+          <div class="card">
+            <h2>Taxas atuais</h2>
+            <div style="overflow:auto">
+              <table class="tx-tab">
+                <thead><tr><th>Bandeira</th><th>Taxa em 1x</th><th>Taxa em 2x</th><th>Taxa em 3x</th><th>Taxa em 4x</th><th>Taxa em 5x</th></tr></thead>
+                <tbody id="txs"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card">
+            <h2>Modificar as taxas</h2>
+            <form class="mod" id="tf">
+              <input class="inp" id="tb" list="bds" placeholder="Bandeira..." required aria-label="Bandeira">
+              <datalist id="bds"></datalist>
+              <select class="inp" id="tn" aria-label="Número de vezes">
+                <option value="1">1x</option><option value="2">2x</option><option value="3">3x</option><option value="4">4x</option><option value="5">5x</option>
+              </select>
+              <input class="inp" id="tt" type="number" min="0" step="0.01" placeholder="Taxa/ desconto (%)..." required aria-label="Taxa em porcentagem">
+              <button class="btn">Alterar/ Adicionar</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="dados.js"></script><!-- banco de dados no navegador -->
+  <script src="app.js"></script><!-- sessão, menu e funções compartilhadas -->
+  <script src="configuracoes.js"></script><!-- lógica só desta tela -->
+</body>
+</html>

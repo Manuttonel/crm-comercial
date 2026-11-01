@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Análises – CRM Revisional</title>
+  <!-- Fontes Jura (títulos) e Inter (textos) -->
+  <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Visual compartilhado -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<!-- data-k diz ao app.js qual tela é esta (controle de acesso e item ativo do menu) -->
+<body data-k="analises">
+  <div id="app">
+    <!-- Menu lateral: o app.js preenche o nome do usuário e os links conforme o perfil -->
+    <aside class="side">
+      <button class="hb" id="hb" aria-label="Recolher menu"><span></span><span></span><span></span></button>
+      <b>“<span class="un">Usuário</span>”</b>
+      <nav class="nav" id="nav"></nav>
+      <button class="lo">Logout</button>
+    </aside>
+    <main>
+      <!-- Análise revisional: financiamento atual x financiamento corrigido -->
+      <section data-v="analises" class="an">
+        <div class="card" style="padding:18px">
+          <div class="an-top">
+            <label>Nome: <input id="nome" list="cls" placeholder="Nome do cliente" autocomplete="off"></label>
+            <label>CPF: <input id="cpf" placeholder="000.000.000-00"></label>
+            <div class="dt"><span id="dt"></span><em id="exp">Expira em 24 horas</em></div>
+            <div class="cons">Consultor: “<span id="cons"></span>”</div>
+          </div>
+          <datalist id="cls"></datalist>
+          <div class="tools">
+            <label>Tipo
+              <select id="tp">
+                <option value="v">Veículo</option>
+                <option value="i">Imóvel</option>
+                <option value="e">Empréstimo</option>
+              </select>
+            </label>
+            <label>Divisão dos juros
+              <input id="dv" type="number" min="1" step="1" value="4">
+            </label>
+          </div>
+          <div class="two">
+            <div>
+              <h3>Financiamento atual com parcelas fixas</h3>
+              <div id="c1"></div>
+            </div>
+            <div>
+              <h3>Financiamento corrigido com parcelas fixas</h3>
+              <div id="c2"></div>
+            </div>
+          </div>
+          <p class="lei"><b>Artigo 51 da Lei nº 8.078 de 11 de Setembro de 1990</b><br>Requisição de diminuição de parcelas e quitação de dívidas sobre juros abusivos.</p>
+          <div class="acts-bar">
+            <button class="btn" id="bNova">Nova análise</button>
+            <button class="btn pri" id="bSalvar">Salvar análise</button>
+            <button class="btn" id="bImp">Imprimir</button>
+          </div>
+        </div>
+        <div class="card hist">
+          <h2 class="ttl">Análises salvas</h2>
+          <div id="lst"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="dados.js"></script><!-- banco de dados no navegador -->
+  <script src="app.js"></script><!-- sessão, menu e funções compartilhadas -->
+  <script src="analises.js"></script><!-- lógica só desta tela -->
+</body>
+</html>

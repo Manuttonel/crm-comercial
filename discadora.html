@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Discadora – CRM Revisional</title>
+  <!-- Fontes Jura (títulos) e Inter (textos) -->
+  <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Visual compartilhado -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<!-- data-k diz ao app.js qual tela é esta (controle de acesso e item ativo do menu) -->
+<body data-k="discadora">
+  <div id="app">
+    <!-- Menu lateral: o app.js preenche o nome do usuário e os links conforme o perfil -->
+    <aside class="side">
+      <button class="hb" id="hb" aria-label="Recolher menu"><span></span><span></span><span></span></button>
+      <b>“<span class="un">Usuário</span>”</b>
+      <nav class="nav" id="nav"></nav>
+      <button class="lo">Logout</button>
+    </aside>
+    <main>
+      <!-- Discadora: teclado, contadores, modo automático e histórico de ligações -->
+      <section data-v="discadora">
+        <div class="dg">
+          <div class="card">
+            <h2 class="ttl">Discadora</h2>
+            <input class="tel" id="tel" placeholder="Telefone..." inputmode="tel" aria-label="Telefone">
+            <div class="pad" id="pad"></div>
+            <!-- Aparece durante uma ligação: escolher como ela terminou -->
+            <div class="res" id="res" hidden></div>
+          </div>
+          <div>
+            <div class="card">
+              <h2 class="ttl" style="text-align:center">Suas Ligações</h2>
+              <div class="lig">
+                <div>Ligações manuais<strong id="nm">0</strong></div>
+                <div>Ligações automáticas<strong id="na">0</strong></div>
+              </div>
+            </div>
+            <div class="card" style="margin-top:12px">
+              <h2 class="ttl">Ligações Automáticas</h2>
+              <div class="tg">
+                <div>Modo de chamadas automáticas<small id="auto-tx">Liga sozinho para os clientes que não responderam</small></div>
+                <button class="sw" id="sw" role="switch" aria-checked="false" aria-label="Modo automático"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card hist">
+          <h2 class="ttl">Histórico de Ligações</h2>
+          <div id="hs"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="dados.js"></script><!-- banco de dados no navegador -->
+  <script src="app.js"></script><!-- sessão, menu e funções compartilhadas -->
+  <script src="discadora.js"></script><!-- lógica só desta tela -->
+</body>
+</html>

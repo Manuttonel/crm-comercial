@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Chats – CRM Revisional</title>
+  <!-- Fontes Jura (títulos) e Inter (textos) -->
+  <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Visual compartilhado -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<!-- data-k diz ao app.js qual tela é esta (controle de acesso e item ativo do menu) -->
+<body data-k="chats">
+  <div id="app">
+    <!-- Menu lateral: o app.js preenche o nome do usuário e os links conforme o perfil -->
+    <aside class="side">
+      <button class="hb" id="hb" aria-label="Recolher menu"><span></span><span></span><span></span></button>
+      <b>“<span class="un">Usuário</span>”</b>
+      <nav class="nav" id="nav"></nav>
+      <button class="lo">Logout</button>
+    </aside>
+    <main>
+      <!-- Chats internos do supervisor/gestor: abas Grupos, Consultores e Gestão (ou Supervisores) -->
+      <section data-v="chats">
+        <div class="card filters" id="flt"></div>
+        <div class="chat">
+          <div class="clist" id="cl"></div>
+          <div class="cm">
+            <header>
+              <div class="av">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-5 3-7 8-7s8 2 8 7z"/></svg>
+              </div>
+              <div><span id="cn"></span><small id="cs"></small></div>
+            </header>
+            <div class="msgs" id="ms"></div>
+            <form class="send" id="sf">
+              <input id="mi" placeholder="Digite sua mensagem" aria-label="Mensagem" maxlength="500">
+              <button>Enviar</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="dados.js"></script><!-- banco de dados no navegador -->
+  <script src="app.js"></script><!-- sessão, menu e funções compartilhadas -->
+  <script src="chats.js"></script><!-- lógica só desta tela -->
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Chats – CRM Revisional</title>
+  <!-- Fontes Jura (títulos) e Inter (textos) -->
+  <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Visual compartilhado -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<!-- data-k diz ao app.js qual tela é esta (controle de acesso e item ativo do menu) -->
+<body data-k="chatsc">
+  <div id="app">
+    <!-- Menu lateral: o app.js preenche o nome do usuário e os links conforme o perfil -->
+    <aside class="side">
+      <button class="hb" id="hb" aria-label="Recolher menu"><span></span><span></span><span></span></button>
+      <b>“<span class="un">Usuário</span>”</b>
+      <nav class="nav" id="nav"></nav>
+      <button class="lo">Logout</button>
+    </aside>
+    <main>
+      <!-- Chats do consultor: clientes separados por situação + aba "Equipe" (chat interno) -->
+      <section data-v="chatsc">
+        <div class="card filters" id="fltc"></div>
+        <div class="chat">
+          <div class="clist" id="clc"></div>
+          <div class="cm">
+            <header>
+              <div class="av">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-5 3-7 8-7s8 2 8 7z"/></svg>
+              </div>
+              <div><span id="cnc">Nome cliente</span><small id="cic"></small></div>
+              <!-- Ações do cliente: mudar situação, etapa do funil e registrar venda -->
+              <div class="ops" id="ops"></div>
+            </header>
+            <div class="msgs" id="msc"></div>
+            <form class="send" id="sfc">
+              <input id="mic" placeholder="Digite sua mensagem" aria-label="Mensagem" maxlength="500">
+              <button type="button" class="alt" id="rcl" title="Registrar uma mensagem recebida do cliente">Resposta do cliente</button>
+              <button>Enviar</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="dados.js"></script><!-- banco de dados no navegador -->
+  <script src="app.js"></script><!-- sessão, menu e funções compartilhadas -->
+  <script src="chats-comercial.js"></script><!-- lógica só desta tela -->
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Gamificação/Metas – CRM Revisional</title>
+  <!-- Fontes Jura (títulos) e Inter (textos) -->
+  <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Visual compartilhado -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<!-- data-k diz ao app.js qual tela é esta (controle de acesso e item ativo do menu) -->
+<body data-k="metas">
+  <div id="app">
+    <!-- Menu lateral: o app.js preenche o nome do usuário e os links conforme o perfil -->
+    <aside class="side">
+      <button class="hb" id="hb" aria-label="Recolher menu"><span></span><span></span><span></span></button>
+      <b>“<span class="un">Usuário</span>”</b>
+      <nav class="nav" id="nav"></nav>
+      <button class="lo">Logout</button>
+    </aside>
+    <main>
+      <!-- Página inicial do consultor: números, destaques da semana, ranking, meta e Kanban -->
+      <section data-v="metas">
+        <div class="card welcome">Bem vindo(a), <span class="un">Consultor</span> ⭐</div>
+        <div class="card home">
+          <div class="kpis">
+            <div class="kpi">
+              <svg viewBox="0 0 24 24"><path d="M12 3l7 7h-4v10H9V10H5z"/></svg>
+              <strong id="k1">0</strong>Novos leads
+            </div>
+            <div class="kpi">
+              <svg viewBox="0 0 24 24"><path d="M3 11a7 6 0 0 1 14 0 7 6 0 0 1-10 5.4L3 18l1.3-3.4A6 6 0 0 1 3 11z"/><path d="M17.5 8.6A6 5.5 0 0 1 21 14a5.6 5.6 0 0 1-1 3l1 3-3-1.2a7 7 0 0 1-7.5-.5"/><circle cx="7" cy="11" r=".6"/><circle cx="10" cy="11" r=".6"/><circle cx="13" cy="11" r=".6"/></svg>
+              <strong id="k2">0</strong>Novas conversas
+            </div>
+            <div class="kpi">
+              <svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="5"/><path d="M8 5.5v5M9.6 6.3H7.4a1 1 0 0 0 0 2h1.2a1 1 0 0 1 0 2H6.4"/><rect x="12" y="13" width="9" height="8" rx="2"/><path d="M14.5 13v-1a2 2 0 0 1 4 0v1"/><path d="M15 3.5a6 6 0 0 1 5 4.5M4 15a6 6 0 0 0 5 5"/></svg>
+              <strong id="k3">0</strong>Número de vendas
+            </div>
+          </div>
+          <div class="duo">
+            <div>
+              <h3>Destaques da semana</h3>
+              <div class="podio" id="podio"></div>
+            </div>
+            <div>
+              <h3>Gamificação</h3>
+              <div class="rkw">
+                <table class="rk">
+                  <thead><tr><th>Ranking</th><th></th><th style="text-align:left">CONSULTOR</th></tr></thead>
+                  <tbody id="rk"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="meta">
+            <h3 class="ttl" style="text-align:center">Meta do mês</h3>
+            <div class="pb"><div id="bar"></div></div>
+            <p style="text-align:center;font-size:13px" id="mtx"></p>
+          </div>
+        </div>
+        <div class="card" style="padding:14px;margin-top:12px">
+          <h3 class="ttl" style="text-align:center;margin-bottom:10px">Kanban</h3>
+          <form class="kadd" id="kf">
+            <input class="inp" id="kt" placeholder="Nova tarefa..." aria-label="Nova tarefa" maxlength="120" required>
+            <button class="btn pri">Adicionar</button>
+          </form>
+          <div class="kb" id="kb"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="dados.js"></script><!-- banco de dados no navegador -->
+  <script src="app.js"></script><!-- sessão, menu e funções compartilhadas -->
+  <script src="metas.js"></script><!-- lógica só desta tela -->
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Gamificação/Metas – CRM Revisional</title>
+  <!-- Fontes Jura (títulos) e Inter (textos) -->
+  <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Visual compartilhado -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<!-- data-k diz ao app.js qual tela é esta (controle de acesso e item ativo do menu) -->
+<body data-k="gamificacao">
+  <div id="app">
+    <!-- Menu lateral: o app.js preenche o nome do usuário e os links conforme o perfil -->
+    <aside class="side">
+      <button class="hb" id="hb" aria-label="Recolher menu"><span></span><span></span><span></span></button>
+      <b>“<span class="un">Usuário</span>”</b>
+      <nav class="nav" id="nav"></nav>
+      <button class="lo">Logout</button>
+    </aside>
+    <main>
+      <!-- Gamificação/Metas do supervisor e do gestor: metas por consultor e desempenho da equipe -->
+      <section data-v="gamificacao">
+        <div class="gm">
+          <div>
+            <div class="card">
+              <h3>Inserir Meta do Consultor:</h3>
+              <form id="mf">
+                <select id="mn" required aria-label="Consultor"></select>
+                <input id="mm" type="number" min="0" step="0.01" placeholder="Valor mínimo a realizar..." required>
+                <input id="md" type="number" min="0" step="0.01" placeholder="Valor meta de desafio..." required>
+                <button>Salvar meta</button>
+              </form>
+            </div>
+            <div class="card">
+              <h3>Metas</h3>
+              <div class="tw">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Consultor</th>
+                      <th>Meta</th>
+                      <th>Desafio</th>
+                      <th>Feito</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tb"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="topo">
+              <div class="card per">
+                <label>Período:</label>
+                <input type="date" id="pi" aria-label="Início do período">
+                <input type="date" id="pf" aria-label="Fim do período">
+              </div>
+              <div class="card proj">Projeção do período<b id="pj">R$ 0</b></div>
+            </div>
+            <div class="card" style="padding:14px">
+              <h3>Valores Já Realizados Pela Equipe</h3>
+              <div class="pl"><span>Alcançado: <b id="al"></b></span><span>Falta: <b id="fa"></b></span></div>
+              <div class="pb">
+                <div id="pb"></div>
+              </div>
+              <div class="pl"><span id="pc"></span><span id="mt"></span></div>
+            </div>
+            <div class="gr">
+              <div class="card">
+                <h3>Negociações</h3>
+                <div class="leg"><span><i style="background:#6ae6ec"></i>Negociando</span><span><i style="background:#41b6d8"></i>Desistiram</span><span><i style="background:#2c8abf"></i>Com link</span></div>
+                <div id="neg"></div>
+              </div>
+              <div class="card">
+                <h3>Pontos de Atenção para Melhor Desempenho da Equipe</h3>
+                <div id="at"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="dados.js"></script><!-- banco de dados no navegador -->
+  <script src="app.js"></script><!-- sessão, menu e funções compartilhadas -->
+  <script src="gamificacao.js"></script><!-- lógica só desta tela -->
+</body>
+</html>
