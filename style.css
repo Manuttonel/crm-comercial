@@ -1059,6 +1059,35 @@ td {
   text-underline-offset: 3px;
 }
 
+#login form#cf .fld {
+  margin-bottom: 16px;
+}
+
+.fld select {
+  flex: 1;
+  background: none;
+  border: 0;
+  color: #fff;
+  font-size: 17px;
+  outline: 0;
+}
+
+.fld select option {
+  color: #111;
+}
+
+#login .err {
+  color: #ffd1d1;
+  font-size: 14px;
+  min-height: 18px;
+  margin-top: 10px;
+}
+
+.troca {
+  margin-top: 14px;
+  font-size: 15px;
+}
+
 .demo {
   margin-top: 18px;
   font: 13px Inter, sans-serif;

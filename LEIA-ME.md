@@ -29,6 +29,10 @@ Outros consultores: `isabelli@`, `ana@`, `mayara@` (Equipe Alfa) e `kayllaine@`,
 `milena@`, `beatriz@` (Equipe Beta), todos `@empresa.com` com a senha `comercial123`.
 A supervisora da Equipe Beta é `paula@empresa.com` / `super123`.
 
+**Criar conta:** na tela de login, clique em **Criar conta**, preencha nome, e-mail, senha (mínimo 6
+caracteres), setor e equipe (para consultor e supervisor). A conta já entra no sistema e depois pode
+fazer login normalmente. Consultor novo começa com meta de R$ 15.000 (o supervisor pode alterar).
+
 Na tela de login, em **Acessos de demonstração**, clicar num perfil já preenche o e-mail e a senha.
 O link **Restaurar dados de exemplo** apaga tudo o que foi alterado e volta ao estado inicial.
 

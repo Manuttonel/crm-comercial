@@ -40,6 +40,43 @@ $$('#demo button').forEach(b => b.onclick = () => {
   $('#err').textContent = '';
 });
 
+/* ---------- Criar conta ---------- */
+// Troca entre o formulário de login e o de cadastro.
+function mostrar(cadastro) {
+  $('#lf').hidden = cadastro;
+  $('#cf').hidden = !cadastro;
+  $('#err').textContent = $('#cErr').textContent = '';
+  (cadastro ? $('#cNome') : $('#em')).focus();
+}
+$('#irCad').onclick = () => mostrar(true);
+$('#irLogin').onclick = () => mostrar(false);
+
+// Opções de setor e de equipe.
+$('#cPf').innerHTML = '<option value="">Setor...</option>' + Object.keys(PERFIS).map(p => `<option value="${p}">${PERFIS[p]}</option>`).join('');
+$('#cEq').innerHTML = BD.equipes.map(e => `<option value="${e.id}">${esc(e.nome)}</option>`).join('');
+// Só consultor e supervisor pertencem a uma equipe.
+const temEquipe = () => ['comercial', 'supervisor'].includes($('#cPf').value);
+$('#cPf').onchange = () => $('#cEqL').hidden = !temEquipe();
+$('#cEqL').hidden = true;
+
+$('#cf').onsubmit = e => {
+  e.preventDefault();
+  const nome = $('#cNome').value.trim(), email = $('#cEm').value.trim().toLowerCase(), perfil = $('#cPf').value;
+  const erro = t => { $('#cErr').textContent = t; };
+  // Validações: nome, e-mail novo, senha confirmada e setor escolhido.
+  if (nome.length < 3) return erro('Digite seu nome completo.');
+  if (BD.usuarios.some(u => u.email === email)) return erro('Já existe uma conta com este e-mail.');
+  if ($('#cPw').value.length < 6) return erro('A senha precisa ter pelo menos 6 caracteres.');
+  if ($('#cPw').value !== $('#cPw2').value) return erro('As senhas não são iguais.');
+  if (!perfil) return erro('Escolha o seu setor.');
+  // Grava o novo usuário. Consultor novo já ganha uma meta inicial (o supervisor pode mudar depois).
+  const u = inserir('usuarios', { nome, email, senha: $('#cPw').value, perfil, equipe_id: temEquipe() ? +$('#cEq').value : null });
+  if (perfil === 'comercial') { BD.metas.push({ usuario_id: u.id, minimo: 15000, desafio: 25000 }); salvarBanco(); }
+  // Já entra no sistema com a conta nova.
+  try { sessionStorage.setItem(CHAVE_SESSAO, JSON.stringify({ uid: u.id })); } catch (x) {}
+  entrar(u);
+};
+
 // Apaga tudo o que foi criado e volta aos dados de exemplo.
 $('#rst').onclick = () => {
   if (!confirm('Apagar todas as alterações e voltar aos dados de exemplo?')) return;
