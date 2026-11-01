@@ -1,4 +1,4 @@
-# CRM Revisional – Sistema Comercial
+# CRM Comercial
 
 Sistema web de CRM para o setor comercial revisional (projeto de Engenharia de Software – UMC).
 Integra os setores **Comercial**, **Supervisão**, **Gestão** e **Financeiro**, com login, chats,
@@ -80,7 +80,7 @@ Cada tela tem um `.html` (estrutura) e um `.js` com o mesmo nome (lógica). Os c
    ```bash
    git init
    git add .
-   git commit -m "CRM Revisional"
+   git commit -m "CRM Comercial"
    git branch -M main
    git remote add origin https://github.com/SEU-USUARIO/crm-revisional.git
    git push -u origin main
