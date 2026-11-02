@@ -1,8 +1,8 @@
 # CRM Comercial
 
-Sistema web de CRM para o setor comercial revisional (projeto de Engenharia de Software – UMC).
-
 **Site publicado:** https://crm-comercial-umc.vercel.app · **Código:** https://github.com/Manuttonel/crm-comercial
+
+Sistema web de CRM para o setor comercial revisional (projeto de Engenharia de Software – UMC).
 Integra os setores **Comercial**, **Supervisão**, **Gestão** e **Financeiro**, com login, chats,
 discadora, análise revisional, dashboards, gamificação/metas e controle financeiro.
 
