@@ -1,6 +1,6 @@
 # CRM Comercial
 
-**Site publicado:** https://crm-comercial-umc.vercel.app · **Código:** https://github.com/Manuttonel/crm-comercial
+**Site publicado:** https://sistema-crm-comercial.vercel.app · **Código:** https://github.com/Manuttonel/crm-comercial
 
 Sistema web de CRM para o setor comercial revisional (projeto de Engenharia de Software – UMC).
 Integra os setores **Comercial**, **Supervisão**, **Gestão** e **Financeiro**, com login, chats,
@@ -93,7 +93,7 @@ Cada tela tem um `.html` (estrutura) e um `.js` com o mesmo nome (lógica). Os c
 2. Clique em **Add New… → Project**.
 3. Ao lado do repositório `crm-comercial`, clique em **Import**.
 4. Em **Framework Preset** deixe **Other**. Não precisa mudar Build Command nem Output Directory.
-5. Clique em **Deploy**. Em cerca de 1 minuto a Vercel mostra o link (ex.: `crm-comercial-umc.vercel.app`).
+5. Clique em **Deploy**. Em cerca de 1 minuto a Vercel mostra o link (ex.: `sistema-crm-comercial.vercel.app`).
 6. Sempre que vocês alterarem algo no GitHub, a Vercel publica a nova versão sozinha.
 
 **Não precisa de Supabase** para o sistema funcionar na Vercel: login, telas e dados funcionam normalmente.
