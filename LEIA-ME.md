@@ -1,6 +1,8 @@
 # CRM Comercial
 
 Sistema web de CRM para o setor comercial revisional (projeto de Engenharia de Software – UMC).
+
+**Site publicado:** https://crm-comercial-umc.vercel.app · **Código:** https://github.com/Manuttonel/crm-comercial
 Integra os setores **Comercial**, **Supervisão**, **Gestão** e **Financeiro**, com login, chats,
 discadora, análise revisional, dashboards, gamificação/metas e controle financeiro.
 
@@ -72,7 +74,7 @@ Cada tela tem um `.html` (estrutura) e um `.js` com o mesmo nome (lógica). Os c
 
 ### 5.1 Subir para o GitHub
 1. Entre em <https://github.com> e clique em **New** (novo repositório).
-2. Nome: `crm-revisional` → deixe **Public** → clique em **Create repository**.
+2. Nome: `crm-comercial` → deixe **Public** → clique em **Create repository**.
 3. Na página do repositório vazio, clique em **uploading an existing file**.
 4. Arraste **todos os arquivos desta pasta** (não a pasta, os arquivos de dentro) e clique em **Commit changes**.
 
@@ -82,16 +84,16 @@ Cada tela tem um `.html` (estrutura) e um `.js` com o mesmo nome (lógica). Os c
    git add .
    git commit -m "CRM Comercial"
    git branch -M main
-   git remote add origin https://github.com/SEU-USUARIO/crm-revisional.git
+   git remote add origin https://github.com/SEU-USUARIO/crm-comercial.git
    git push -u origin main
    ```
 
 ### 5.2 Publicar na Vercel
 1. Entre em <https://vercel.com> com a conta do GitHub (**Continue with GitHub**).
 2. Clique em **Add New… → Project**.
-3. Ao lado do repositório `crm-revisional`, clique em **Import**.
+3. Ao lado do repositório `crm-comercial`, clique em **Import**.
 4. Em **Framework Preset** deixe **Other**. Não precisa mudar Build Command nem Output Directory.
-5. Clique em **Deploy**. Em cerca de 1 minuto a Vercel mostra o link (ex.: `crm-revisional.vercel.app`).
+5. Clique em **Deploy**. Em cerca de 1 minuto a Vercel mostra o link (ex.: `crm-comercial-umc.vercel.app`).
 6. Sempre que vocês alterarem algo no GitHub, a Vercel publica a nova versão sozinha.
 
 **Não precisa de Supabase** para o sistema funcionar na Vercel: login, telas e dados funcionam normalmente.
@@ -105,7 +107,7 @@ Usem o Supabase **apenas** se o professor exigir que os dados sejam os mesmos em
 
 ### 6.1 Criar o banco
 1. Entre em <https://supabase.com> → **Start your project** → entre com o GitHub.
-2. **New project** → escolha um nome (`crm-revisional`), crie uma senha do banco (guarde-a) e a região
+2. **New project** → escolha um nome (`crm-comercial`), crie uma senha do banco (guarde-a) e a região
    **South America (São Paulo)** → **Create new project**. Espere uns 2 minutos.
 3. No menu da esquerda, abra **SQL Editor** → **New query**, cole o código abaixo e clique em **Run**:
    ```sql
