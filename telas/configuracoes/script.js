@@ -1,3 +1,7 @@
+/* TELA: CONFIGURACOES
+ * Responsabilidade: Gerencia as configurações disponíveis no sistema.
+ * Contém a lógica específica desta tela.
+ */
 /* configuracoes.js — Configurações do financeiro: fornecedores, chargebacks e taxas das bandeiras. */
 
 pagina(() => {

@@ -1,3 +1,7 @@
+/* TELA: METAS
+ * Responsabilidade: Controla metas e indicadores individuais dos consultores.
+ * Contém a lógica específica desta tela.
+ */
 /* metas.js — Gamificação/Metas do consultor: números do dia, pódio, ranking, meta e Kanban. */
 
 pagina(() => {

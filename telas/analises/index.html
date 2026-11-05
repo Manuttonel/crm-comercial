@@ -7,7 +7,7 @@
   <!-- Fontes Jura (títulos) e Inter (textos) -->
   <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- Visual compartilhado -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../../assets/css/global.css">
 </head>
 <!-- data-k diz ao app.js qual tela é esta (controle de acesso e item ativo do menu) -->
 <body data-k="analises">
@@ -55,9 +55,12 @@
           <p class="lei"><b>Artigo 51 da Lei nº 8.078 de 11 de Setembro de 1990</b><br>Requisição de diminuição de parcelas e quitação de dívidas sobre juros abusivos.</p>
           <div class="acts-bar">
             <button class="btn" id="bNova">Nova análise</button>
+            <button class="btn ia-btn" id="bIA">Analisar com IA</button>
             <button class="btn pri" id="bSalvar">Salvar análise</button>
             <button class="btn" id="bImp">Imprimir</button>
           </div>
+          <!-- Parecer escrito pela IA (aparece depois de clicar em "Analisar com IA") -->
+          <div class="ia-box" id="iaBox" hidden></div>
         </div>
         <div class="card hist">
           <h2 class="ttl">Análises salvas</h2>
@@ -66,8 +69,9 @@
       </section>
     </main>
   </div>
-  <script src="dados.js"></script><!-- banco de dados no navegador -->
-  <script src="app.js"></script><!-- sessão, menu e funções compartilhadas -->
-  <script src="analises.js"></script><!-- lógica só desta tela -->
+  <script src="../../assets/js/dados.js"></script><!-- banco de dados no navegador -->
+  <script src="../../assets/js/app.js"></script><!-- sessão, menu e funções compartilhadas -->
+  <script src="../../assets/js/ia-cliente.js"></script><!-- chamada à IA e análise de reserva -->
+  <script src="script.js"></script><!-- lógica só desta tela -->
 </body>
 </html>

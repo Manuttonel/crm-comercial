@@ -1,3 +1,6 @@
+/* NÚCLEO COMPARTILHADO DO CRM
+ * Reúne sessão, permissões, navegação e componentes reutilizados pelas telas.
+ */
 /* =====================================================================
    app.js — código compartilhado por TODAS as telas do sistema.
    Carregar sempre depois do dados.js.
@@ -70,9 +73,9 @@ const NAV = {
 
 // Arquivo HTML de cada item do menu.
 const FILE = {
-  dashboards: 'dashboards.html', chats: 'chats.html', discadora: 'discadora.html', gamificacao: 'gamificacao.html',
-  metas: 'metas.html', chatsc: 'chats-comercial.html', analises: 'analises.html',
-  financeiro: 'financeiro.html', configuracoes: 'configuracoes.html'
+  dashboards: '../dashboards/index.html', chats: '../chats/index.html', discadora: '../discadora/index.html', gamificacao: '../gamificacao/index.html',
+  metas: '../metas/index.html', chatsc: '../chats-comercial/index.html', analises: '../analises/index.html',
+  financeiro: '../financeiro/index.html', configuracoes: '../configuracoes/index.html'
 };
 
 /* ---------- 4. Sessão: quem está logado ---------- */
@@ -85,7 +88,7 @@ function lerSessao() {
 }
 function sair() {
   try { sessionStorage.removeItem(CHAVE_SESSAO); localStorage.removeItem(CHAVE_SESSAO); } catch (e) {}
-  location.href = 'index.html';
+  location.href = '../../index.html';
 }
 const SESSAO = lerSessao();
 // EU = usuário logado (ou null se ninguém entrou).
@@ -96,7 +99,7 @@ const EU = (SESSAO && BD.usuarios.find(u => u.id === SESSAO.uid)) || null;
 const KEY = document.body.dataset.k || '';
 let liberado = false; // vira true quando o usuário pode ver esta tela
 if (KEY) { // a tela de login não tem data-k, então pula este bloco
-  if (!EU) location.replace('index.html');                                           // ninguém logado: volta ao login
+  if (!EU) location.replace('../../index.html');                                           // ninguém logado: volta ao login
   else if (!NAV[EU.perfil].includes(KEY)) location.replace(FILE[NAV[EU.perfil][0]]); // tela de outro perfil: vai para a sua
   else {
     liberado = true;

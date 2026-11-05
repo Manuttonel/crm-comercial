@@ -1,3 +1,7 @@
+/* TELA: LOGIN
+ * Responsabilidade: Valida credenciais, alterna entre login e cadastro e inicia a sessão.
+ * Contém a lógica específica desta tela.
+ */
 /* login.js — lógica da tela de login (index.html). Usa BD (dados.js) e NAV/FILE (app.js). */
 
 // Leva o usuário para a tela inicial do seu perfil (replace não deixa o login no histórico).

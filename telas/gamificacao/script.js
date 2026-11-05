@@ -1,3 +1,7 @@
+/* TELA: GAMIFICACAO
+ * Responsabilidade: Calcula pontuações, ranking e elementos de gamificação.
+ * Contém a lógica específica desta tela.
+ */
 /* gamificacao.js — Gamificação/Metas do supervisor e do gestor. */
 
 pagina(() => {

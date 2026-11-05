@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Dashboards – CRM Comercial</title>
+  <!-- Fontes Jura (títulos) e Inter (textos) -->
+  <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Visual compartilhado -->
+  <link rel="stylesheet" href="../../assets/css/global.css">
+</head>
+<!-- data-k diz ao app.js qual tela é esta (controle de acesso e item ativo do menu) -->
+<body data-k="dashboards">
+  <div id="app">
+    <!-- Menu lateral: o app.js preenche o nome do usuário e os links conforme o perfil -->
+    <aside class="side">
+      <button class="hb" id="hb" aria-label="Recolher menu"><span></span><span></span><span></span></button>
+      <b>“<span class="un">Usuário</span>”</b>
+      <nav class="nav" id="nav"></nav>
+      <button class="lo">Logout</button>
+    </aside>
+    <main>
+      <!-- Dashboards (supervisor e gestor): conversão, tempo de atendimento, faturamento e funil -->
+      <section data-v="dashboards">
+        <div class="card welcome">Bem vindo(a), “<span class="un">Supervisor</span>”!</div>
+        <div class="dash">
+          <div>
+            <div class="card sel">
+              <select id="fc" aria-label="Consultor"></select>
+              <select id="fl" aria-label="Lead"></select>
+            </div>
+            <div class="card pad2">
+              <h2>Conversão</h2>
+              <div class="leg"><span><i style="background:var(--c1)"></i>Do mês</span><span><i style="background:var(--c2)"></i>Mês passado</span></div>
+              <div id="gConv"></div>
+            </div>
+            <div class="card pad2">
+              <h2>Tempo Médio de Atendimento</h2>
+              <div class="leg"><span><i style="background:var(--c1)"></i>Manual</span><span><i style="background:var(--c2)"></i>Automático</span></div>
+              <div id="gTempo"></div>
+            </div>
+          </div>
+          <div>
+            <div class="card pad2">
+              <h2 id="ftTit">Faturamento da Equipe</h2>
+              <div class="big-n" id="ft">R$ 0</div>
+              <small id="ftSub"></small>
+            </div>
+            <div class="card pad2" style="flex:1">
+              <h2>Funil de Vendas da Equipe</h2>
+              <div class="funil" id="fun"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Análise escrita pela IA a partir dos números do painel -->
+        <div class="card pad2 ia-dash">
+          <div class="ia-dash-top">
+            <h2>Análise da IA</h2>
+            <button class="btn ia-btn" id="bIA">Analisar com IA</button>
+          </div>
+          <p class="ia-dica" id="iaDica">Resume os números do painel (com os filtros escolhidos), aponta pontos de atenção e sugere ações.</p>
+          <div class="ia-box" id="iaBox" hidden></div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="../../assets/js/dados.js"></script><!-- banco de dados no navegador -->
+  <script src="../../assets/js/app.js"></script><!-- sessão, menu e funções compartilhadas -->
+  <script src="../../assets/js/ia-cliente.js"></script><!-- chamada à IA e análise de reserva -->
+  <script src="script.js"></script><!-- lógica só desta tela -->
+</body>
+</html>

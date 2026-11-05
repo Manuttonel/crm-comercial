@@ -1,3 +1,7 @@
+/* TELA: FINANCEIRO
+ * Responsabilidade: Apresenta faturamento, taxas, fornecedores e chargebacks.
+ * Contém a lógica específica desta tela.
+ */
 /* financeiro.js — Home do setor financeiro: chargebacks, evolução do faturamento e ranking de vendas. */
 
 pagina(() => {

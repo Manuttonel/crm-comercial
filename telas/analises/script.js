@@ -1,3 +1,7 @@
+/* TELA: ANALISES
+ * Responsabilidade: Executa cálculos e organiza pareceres de análise revisional.
+ * Contém a lógica específica desta tela.
+ */
 /* analises.js — Análises: compara o financiamento atual com o corrigido e salva no banco. */
 
 pagina(() => {
@@ -20,6 +24,8 @@ pagina(() => {
   // Divisão padrão de cada tipo: veículo 4, imóvel 2, empréstimo 2.
   const DIV = { v: 4, i: 2, e: 2 };
   let aberta = null; // análise salva que está aberta na tela (null = nova)
+  let parecer = null; // parecer da IA mostrado na tela (vai junto quando a análise é salva)
+  const TIPOS = { v: 'Veículo', i: 'Imóvel', e: 'Empréstimo' };
 
   // Cálculo revisional (mesma fórmula do protótipo).
   function calculo(a) {
@@ -40,6 +46,38 @@ pagina(() => {
       valor_financiado: num('valor_financiado'), meses: num('meses'), parcela: num('parcela'), qt_pagas: num('qt_pagas'), qt_atrasadas: num('qt_atrasadas')
     };
   }
+
+  /* ---------- Parecer da IA ---------- */
+  // Mostra (ou esconde) o parecer na tela.
+  function mostrarParecer(o) {
+    parecer = o || null;
+    const box = $('#iaBox');
+    box.hidden = !o;
+    box.innerHTML = o ? htmlParecer(o) : '';
+    const c = $('#iaCopiar');
+    if (c) c.onclick = () => navigator.clipboard.writeText($('#iaMsg').textContent).then(() => aviso('Mensagem copiada!'), () => aviso('Não foi possível copiar.'));
+  }
+
+  // Pede o parecer à IA. Não envia nome nem CPF do cliente, só os dados do financiamento.
+  $('#bIA').onclick = async () => {
+    const a = lerTela(), r = calculo(a);
+    if (!r) { aviso('Preencha valor financiado, n° de meses e valor da parcela.'); return; }
+    const taxaPct = taxaMensal(a.valor_financiado, a.meses, a.parcela) * 100;
+    const dados = {
+      tipo_financiamento: TIPOS[a.tipo], financeira: a.financeira, modelo: a.modelo, valor_financiado: a.valor_financiado,
+      meses: a.meses, parcela: a.parcela, qt_pagas: a.qt_pagas, qt_atrasadas: a.qt_atrasadas, divisao: a.divisao,
+      juros_total: a.meses * a.parcela - a.valor_financiado, taxa_mensal_pct: taxaPct, situacao: r.sit,
+      nova_parcela: r.np, reducao_parcela: r.red, estorno: r.estorno, reducao_total: r.total
+    };
+    const b = $('#bIA');
+    b.disabled = true; b.textContent = 'Analisando...';
+    try { mostrarParecer(await pedirIA('analise', dados)); }
+    catch (e) { mostrarParecer(parecerLocal(a, r, taxaPct)); aviso('IA indisponível agora: mostrando a análise automática.'); }
+    b.disabled = false; b.textContent = 'Analisar com IA';
+  };
+
+  // Mudou algum dado: o parecer antigo não vale mais, então some da tela.
+  ['#c1', '#dv', '#tp'].forEach(id => { $(id).addEventListener('input', () => mostrarParecer(null)); $(id).addEventListener('change', () => mostrarParecer(null)); });
 
   // Recalcula os resultados a cada tecla digitada.
   function calcular() {
@@ -72,6 +110,7 @@ pagina(() => {
     L.forEach(f => $('#a_' + f[0]).value = a && a[f[0]] !== undefined ? a[f[0]] : '');
     cabecalho();
     calcular();
+    mostrarParecer(a && a.ia ? a.ia : null);
   }
 
   // Lista das análises salvas pelo consultor (mais recentes primeiro).
@@ -98,6 +137,7 @@ pagina(() => {
   // Salvar: atualiza a análise aberta ou cria uma nova com número de correção.
   $('#bSalvar').onclick = () => {
     const a = lerTela();
+    a.ia = parecer; // guarda o parecer junto (ou apaga o antigo, se os dados mudaram)
     if (!a.cliente) { aviso('Informe o nome do cliente.'); $('#nome').focus(); return; }
     if (!calculo(a)) { aviso('Preencha valor financiado, n° de meses e valor da parcela.'); return; }
     if (aberta) aberta = alterar('analises', aberta.id, a);

@@ -1,3 +1,6 @@
+/* BANCO DE DADOS LOCAL
+ * Centraliza dados de demonstração e operações de leitura/gravação no localStorage.
+ */
 /* =====================================================================
    dados.js — "banco de dados" do sistema, guardado no navegador (localStorage).
    Na primeira vez que o sistema abre, ele cria dados de exemplo (semente).

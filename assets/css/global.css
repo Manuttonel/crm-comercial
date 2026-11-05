@@ -1942,3 +1942,118 @@ svg.st {
   }
 }
 
+
+/* ===== 14. Inteligência artificial (parecer da IA nas Análises e nos Dashboards) ===== */
+.ia-btn {
+  background: linear-gradient(135deg, #2a5bff, #20255a);
+  color: #fff;
+  font: 700 14px Jura, sans-serif;
+}
+
+.ia-box {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border-left: 4px solid var(--blue);
+  background: var(--in);
+  color: var(--tx);
+  font: 400 14px/1.5 Inter, sans-serif;
+}
+
+.ia-box[hidden] {
+  display: none;
+}
+
+.ia-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.ia-tag {
+  font: 700 11px Inter, sans-serif;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: var(--blue);
+  color: #fff;
+}
+
+.ia-vi {
+  margin-left: auto;
+  font: 700 12px Inter, sans-serif;
+  padding: 2px 10px;
+  border-radius: 10px;
+}
+
+.ia-vi.alta {
+  background: rgba(74,165,33,.18);
+  color: var(--green);
+}
+
+.ia-vi.media {
+  background: rgba(230,160,20,.2);
+  color: #b57a00;
+}
+
+.ia-vi.baixa {
+  background: rgba(224,38,45,.14);
+  color: #e0262d;
+}
+
+.ia-box h4 {
+  margin: 12px 0 4px;
+  font: 700 13px Jura, sans-serif;
+  color: var(--ink);
+}
+
+.ia-box ul {
+  padding-left: 18px;
+}
+
+.ia-box li {
+  margin: 2px 0;
+}
+
+.ia-msg {
+  margin-bottom: 8px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--card);
+}
+
+.ia-rod {
+  display: block;
+  margin-top: 12px;
+  font-size: 12px;
+  opacity: .7;
+}
+
+.ia-dash {
+  margin-top: 14px;
+}
+
+.ia-dash-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ia-dica {
+  margin-top: 6px;
+  font-size: 13px;
+  opacity: .75;
+}
+
+.ia-dica[hidden] {
+  display: none;
+}
+
+@media print {
+  .ia-btn {
+    display: none;
+  }
+}

@@ -1,3 +1,7 @@
+/* TELA: CHATS
+ * Responsabilidade: Gerencia o chat interno entre usuários e equipes.
+ * Contém a lógica específica desta tela.
+ */
 /* chats.js — Chat interno do supervisor e do gestor. As mensagens ficam salvas no banco
    e aparecem para o outro usuário (teste abrindo outra aba com outro login). */
 

@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Dashboards – CRM Comercial</title>
+  <title>Home Financeiro – CRM Comercial</title>
   <!-- Fontes Jura (títulos) e Inter (textos) -->
   <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- Visual compartilhado -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../../assets/css/global.css">
 </head>
 <!-- data-k diz ao app.js qual tela é esta (controle de acesso e item ativo do menu) -->
-<body data-k="dashboards">
+<body data-k="financeiro">
   <div id="app">
     <!-- Menu lateral: o app.js preenche o nome do usuário e os links conforme o perfil -->
     <aside class="side">
@@ -20,43 +20,45 @@
       <button class="lo">Logout</button>
     </aside>
     <main>
-      <!-- Dashboards (supervisor e gestor): conversão, tempo de atendimento, faturamento e funil -->
-      <section data-v="dashboards">
-        <div class="card welcome">Bem vindo(a), “<span class="un">Supervisor</span>”!</div>
-        <div class="dash">
+      <!-- Home do financeiro: chargebacks, evolução do faturamento, faturamento total e ranking -->
+      <section data-v="financeiro">
+        <div class="card welcome">Bem vindo(a), “<span class="un">Financeiro</span>”!</div>
+        <div class="fin">
           <div>
             <div class="card sel">
-              <select id="fc" aria-label="Consultor"></select>
+              <select id="fs" aria-label="Supervisor"></select>
               <select id="fl" aria-label="Lead"></select>
             </div>
             <div class="card pad2">
-              <h2>Conversão</h2>
-              <div class="leg"><span><i style="background:var(--c1)"></i>Do mês</span><span><i style="background:var(--c2)"></i>Mês passado</span></div>
-              <div id="gConv"></div>
+              <h2 style="text-align:left">Chargeback</h2>
+              <div id="cbs"></div>
             </div>
-            <div class="card pad2">
-              <h2>Tempo Médio de Atendimento</h2>
-              <div class="leg"><span><i style="background:var(--c1)"></i>Manual</span><span><i style="background:var(--c2)"></i>Automático</span></div>
-              <div id="gTempo"></div>
+            <div class="card pad2" style="flex:1">
+              <h2 style="text-align:left">Evolução do faturamento</h2>
+              <div id="evo"></div>
             </div>
           </div>
           <div>
             <div class="card pad2">
-              <h2 id="ftTit">Faturamento da Equipe</h2>
+              <h2>Faturamento</h2>
               <div class="big-n" id="ft">R$ 0</div>
               <small id="ftSub"></small>
             </div>
             <div class="card pad2" style="flex:1">
-              <h2>Funil de Vendas da Equipe</h2>
-              <div class="funil" id="fun"></div>
+              <div class="rkw" style="max-height:420px">
+                <table class="rk">
+                  <thead><tr><th>Ranking</th><th></th><th style="text-align:left">CONSULTOR</th><th>Faturamento</th><th>N° Vendas</th></tr></thead>
+                  <tbody id="rk"></tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
       </section>
     </main>
   </div>
-  <script src="dados.js"></script><!-- banco de dados no navegador -->
-  <script src="app.js"></script><!-- sessão, menu e funções compartilhadas -->
-  <script src="dashboards.js"></script><!-- lógica só desta tela -->
+  <script src="../../assets/js/dados.js"></script><!-- banco de dados no navegador -->
+  <script src="../../assets/js/app.js"></script><!-- sessão, menu e funções compartilhadas -->
+  <script src="script.js"></script><!-- lógica só desta tela -->
 </body>
 </html>

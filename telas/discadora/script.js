@@ -1,3 +1,7 @@
+/* TELA: DISCADORA
+ * Responsabilidade: Controla ligações manuais e automáticas simuladas.
+ * Contém a lógica específica desta tela.
+ */
 /* discadora.js — Discadora (comercial, supervisor e gestor). As ligações são simuladas e salvas no banco. */
 
 pagina(() => {

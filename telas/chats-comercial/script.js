@@ -1,3 +1,7 @@
+/* TELA: CHATS-COMERCIAL
+ * Responsabilidade: Gerencia conversas do consultor com clientes.
+ * Contém a lógica específica desta tela.
+ */
 /* chats-comercial.js — Chat do consultor: clientes por situação, venda, novo cliente e chat com a equipe. */
 
 pagina(() => {
